@@ -1,0 +1,16 @@
+inicio = int(input("Ingrese el número de inicio: "))
+fin = int(input("Ingrese el número de fin: "))
+
+if inicio < fin:
+    if fin % 3 == 0:
+        resultado = fin
+    else:
+        resultado = max(filter(lambda x: x % 3 == 0, range(inicio, fin)))
+
+else:
+    if fin % 3 == 0:
+        resultado = fin
+    else:
+        resultado = min(filter(lambda x: x % 3 == 0, range(fin, inicio)))
+
+print("Resultado:", resultado)
