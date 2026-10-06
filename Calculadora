@@ -1,0 +1,36 @@
+```python
+def multiplicar(a, b):
+
+    mayor = max(len(str(a)), len(str(b)))
+
+    if mayor <= 1:
+        return a * b
+
+    mitad = mayor // 2
+    base = 10 ** mitad
+
+    parte1 = a // base
+    parte2 = a % base
+
+    parte3 = b // base
+    parte4 = b % base
+
+    arriba = multiplicar(parte1, parte3)
+    medio1 = multiplicar(parte1, parte4)
+    medio2 = multiplicar(parte2, parte3)
+    abajo = multiplicar(parte2, parte4)
+
+    return arriba * base ** 2 + (medio1 + medio2) * base + abajo
+
+
+def calculadora():
+    numero1 = int(input("Ingrese el primer entero: "))
+    numero2 = int(input("Ingrese el segundo entero: "))
+
+    resultado = multiplicar(numero1, numero2)
+
+    print("Resultado:", resultado)
+
+
+calculadora()
+```
